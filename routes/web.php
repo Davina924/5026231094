@@ -13,10 +13,37 @@ Route::get('halo', function () {
 });
 
 Route::get('blog', function () {
-	return view('blog');
+	return view('Intro');
 });
 
-Route::get('js', function () {
+Route::get('jsp', function () {
 	return view('js1');
 });
 
+Route::get('linktreecf', function () {
+	return view('coffeelinktree');
+});
+
+Route::get('linktreecf', function () {
+	return view('coffeelinktree');
+});
+
+Route::get('validasi', function () {
+	return view('validasi1');
+});
+
+Route::get('layout', function () {
+	return view('LatihanLayout');
+});
+
+Route::get('layoutfinal', function () {
+	return view('latihanlayoutfinal');
+});
+
+Route::get('index', function () {
+	return view('index');
+});
+
+Route::get('frontend', function () {
+	return view('frontend');
+});
