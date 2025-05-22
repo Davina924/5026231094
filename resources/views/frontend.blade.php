@@ -72,11 +72,9 @@
 </head>
 <body>
     <div class="container-fluid p-0">
-        <!-- Header Image -->
-        <img src="header.jpg" alt="Header" class="header-image">
+        <img src="assets/img/header.jpeg" alt="Header" class="header-image">
 
         <div class="container py-5">
-            <!-- Profile Section -->
             <div class="row">
                 <div class="col-md-12 profile-section">
                     <img src="pp.jpg" alt="Profile" class="profile-image">
@@ -86,7 +84,6 @@
 
             <div class="divider"></div>
 
-            <!-- Quote Box -->
             <div class="quote-box">
                 <p class="mb-0">"Try your best & let God do the rest."</p>
             </div>
