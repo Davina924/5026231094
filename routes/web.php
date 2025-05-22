@@ -16,6 +16,14 @@ Route::get('blog', function () {
 	return view('Intro');
 });
 
+Route::get('zindex', function () {
+	return view('zindex');
+});
+
+Route::get('boxsizing', function () {
+	return view('boxsizing');
+});
+
 Route::get('jsp', function () {
 	return view('js1');
 });

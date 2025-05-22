@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,19 +30,20 @@
             background-color: white;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 15px;  /* reduced padding */
-            margin-bottom: 15px;  /* reduced margin */
+            padding: 12px;
+            margin-bottom: 12px;
             transition: transform 0.2s;
-            min-height: 100px;  /* set minimum height */
+            min-height: 80px;
         }
 
         .content-box h5 {
-            margin-bottom: 15px;  /* space between title and button */
+            margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .content-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .custom-btn {
@@ -49,8 +51,8 @@
             border: 1px solid #e0e0e0;
             color: #37352f;
             transition: all 0.3s;
-            width: 100%;  /* Makes button full width */
-            margin-top: 10px;  /* Adds some space above button */
+            width: 100%;
+            margin-top: 10px;
         }
 
         .custom-btn:hover {
@@ -70,6 +72,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid p-0">
         <img src="assets/img/header.jpeg" alt="Header" class="header-image">
@@ -90,51 +93,64 @@
 
             <div class="divider"></div>
 
-            <!-- Content Boxes -->
+
             <div class="row">
-                <!-- First Row -->
                 <div class="col-md-4">
                     <div class="content-box">
                         <h5>Blog</h5>
-                        <a href="{{ url('/blog') }}" class="btn custom-btn">See Result</a>
+                        <a href="blog" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
-               <div class="col-md-4">
+                <div class="col-md-4">
+                    <div class="content-box">
+                        <h5>Box Sizing</h5>
+                        <a href="boxsizing" class="btn custom-btn">See Result</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content-box">
+                        <h5>Z-Index</h5>
+                        <a href="zindex" class="btn custom-btn">See Result</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="content-box">
                         <h5>JavaScript</h5>
-                        <a href="{{ url('/jsp') }}" class="btn custom-btn">See Result</a>
+                        <a href="jsp" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="content-box">
                         <h5>Layout</h5>
-                        <a href="{{ url('/layout') }}" class="btn custom-btn">See Result</a>
+                        <a href="layout" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
 
-                <!-- Second Row -->
                 <div class="col-md-4">
                     <div class="content-box">
                         <h5>Layout Revisi</h5>
-                        <a href="{{ url('/layoutfinal') }}" class="btn custom-btn">See Result</a>
+                        <a href="layoutfinal" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="content-box">
                         <h5>Validasi</h5>
-                        <a href="{{ url('/validasi') }}" class="btn custom-btn">See Result</a>
+                        <a href="validasi" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="content-box">
                         <h5>ETS</h5>
-                        <a href="{{ url('/index') }}" class="btn custom-btn">See Result</a>
+                        <a href="index" class="btn custom-btn">See Result</a>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
