@@ -5,6 +5,8 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\SnackController;
+
 // import java.io ;
 // Route adalah nama kelas
 // System.out.println("Hello World");
@@ -80,3 +82,11 @@ Route::get('/pegawai/hapus/{id}', [PegawaiDBController::class, 'hapus']);
 
 Route::get('/pegawai/cari', [PegawaiDBController::class, 'cari']);
 
+Route::get('/snack', [SnackController::class, 'index']);
+Route::get('/snack/tambah', [SnackController::class, 'tambah']);
+Route::post('/snack/store', [SnackController::class, 'store']); //jika form dikirim, route ini akan dijalankan
+Route::get('/snack/edit/{id}',[SnackController::class, 'edit']);
+Route::post('/snack/update',[SnackController::class, 'update']);
+Route::get('/snack/hapus/{id}', [SnackController::class, 'hapus']);
+
+Route::get('/snack/cari', [SnackController::class, 'cari']);
