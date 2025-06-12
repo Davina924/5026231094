@@ -6,6 +6,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\SnackController;
+use App\Http\Controllers\Tugas1Controller;
 
 // import java.io ;
 // Route adalah nama kelas
@@ -90,3 +91,5 @@ Route::post('/snack/update',[SnackController::class, 'update']);
 Route::get('/snack/hapus/{id}', [SnackController::class, 'hapus']);
 
 Route::get('/snack/cari', [SnackController::class, 'cari']);
+
+Route::get('/latihan1', [Tugas1Controller::class, 'index']);

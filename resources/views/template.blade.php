@@ -16,39 +16,69 @@
         .jumbotron {
             background-color: #9de2e2;
             height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .navbar {
+            justify-content: center;
+            margin-top: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            color: #333 !important;
+        }
+
+        .nav-link:hover {
+            color: #9de2e2 !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
     <div class="jumbotron text-center mx-auto">
-        <h1>5026231094 : Davina Almeira</h1>
+        <h1 class="m-0">5026231094 : Davina Almeira</h1>
     </div>
 
-    <nav class="navbar navbar-expand-sm bg-light">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/frontend">All Front End</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pegawai">Pegawai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/snack">Tugas CRUD</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">EAS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 3</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-sm bg-light text-center">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/frontend">All Front End</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pegawai">Pegawai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/snack">Tugas CRUD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">EAS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/latihan1">Latihan 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Latihan 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Latihan 3</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <br>
     <div class="container">
