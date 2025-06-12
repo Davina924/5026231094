@@ -4,25 +4,41 @@
     <h3 class="mb-3" style="font-weight: bold;">List Snack</h3>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <!-- Form pencarian -->
-        <form action="/snack/cari" method="GET" class="form-inline d-flex align-items-center">
-            <div class="position-relative">
-                <input type="text"
-                       name="cari"
-                       placeholder="Cari Nama Snack"
-                       class="form-control rounded-pill px-4"
-                       style="background-color: #f8f9fa; padding-right: 45px; width: 300px; border: 1px solid #dfe1e5;">
-                <button type="submit"
-                        class="btn position-absolute top-50 end-0 translate-middle-y border-0"
-                        style="background: none; right: 12px;">
-                    <i class="fa-solid fa-magnifying-glass" style="color: #9aa0a6;"></i>
-                </button>
-            </div>
-        </form>
+        <!-- Form pencarian dan pengurutan -->
+        <div class="d-flex align-items-center">
+            <form action="/snack/cari" method="GET" class="form-inline d-flex align-items-center gap-4">
+                <!-- Search box -->
+                <div class="position-relative mr-2">
+                    <input type="text"
+                           name="cari"
+                           placeholder="Cari Nama Snack"
+                           class="form-control rounded-pill px-4"
+                           value="{{ request('cari') }}"
+                           style="background-color: #f8f9fa; padding-right: 45px; width: 300px; border: 1px solid #dfe1e5;">
+                    <button type="submit"
+                            class="btn position-absolute top-50 end-0 translate-middle-y border-0"
+                            style="background: none; right: 12px;">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #9aa0a6;"></i>
+                    </button>
+                </div>
 
-        <!-- Form jumlah snack dan tombol tambah -->
-        <div class="d-flex align-items-center gap-3">
-            <div class="text-secondary" style="margin-right: 7px;">
+                <!-- Sort dropdown with increased gap -->
+                <select name="sort"
+                        class="form-select rounded-pill ms-2"
+                        style="width: 160px; border-color: #304a90; background-color: transparent;"
+                        onchange="this.form.submit()">
+                    <option value="">Urutkan dari</option>
+                    <option value="name_asc" {{ request('sort') == 'name_asc' ? 'selected' : '' }}>A-Z</option>
+                    <option value="name_desc" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Z-A</option>
+                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Harga Terendah</option>
+                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Harga Tertinggi</option>
+                </select>
+            </form>
+        </div>
+
+        <!-- Right side content with increased gap -->
+        <div class="d-flex align-items-center gap-4">
+            <div class="text-secondary mr-2">
                 <span class="text-success fw-bold">{{ $availableSnacks }}</span>/{{ $totalSnacks }} Snack Tersedia
             </div>
             <a href="/snack/tambah" class="btn btn-outline-info" style="border-radius: 25px">+ Tambah Snack Baru</a>

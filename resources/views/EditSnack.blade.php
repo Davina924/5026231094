@@ -30,7 +30,7 @@
 
                 <div class="mb-3">
                     <label class="form-label" style="font-weight: 500">Berat</label>
-                    <input type="number" name="berat" required="required" class="form-control w-50" min="0" value="{{ $s->berat }}">
+                    <input type="number" name="berat" required="required" class="form-control w-50" min="0" step="0.01" value="{{ $s->berat }}">
                 </div>
 
                 <input type="submit" value="Simpan Data" class="btn btn-success">

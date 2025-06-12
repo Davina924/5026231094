@@ -87,22 +87,24 @@ class SnackController extends Controller
     // method untuk hapus data snack
     public function hapus($id)
     {
-	// menghapus data snack berdasarkan id yang dipilih
-	DB::table('snack')->where('id',$id)->delete();
+        // mengambil data snack yang akan dihapus
+        $snack = DB::table('snack')->where('id', $id)->first();
+        $merksnack = $snack->merksnack;  // simpan nama snack sebelum dihapus
 
-	// alihkan halaman ke halaman snack
-	return redirect('/snack')->with('success', $merksnack . ' berhasil dihapus!');
+        // menghapus data snack berdasarkan id yang dipilih
+        DB::table('snack')->where('id', $id)->delete();
+
+        // alihkan halaman ke halaman snack
+        return redirect('/snack')->with('success', $merksnack . ' berhasil dihapus!');
     }
 
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
 		$cari = $request->cari;
-        $totalSnacks = DB::table('snack')->count();
-        $availableSnacks = DB::table('snack')->where('tersedia', 1)->count();
+        $sort = $request->sort;
 
-    		// mengambil data dari table snack sesuai pencarian data
-		$snack = DB::table('snack')
+        $query = DB::table('snack')
             ->select('*',
                 DB::raw("CONCAT('Rp', hargasnack) as hargasnack"),
                 DB::raw("CONCAT(berat, ' gram') as berat"),
@@ -114,18 +116,39 @@ class SnackController extends Controller
                     WHEN tersedia = 0 THEN 'bg-danger'
                     ELSE 'bg-success'
                 END as status_class")
-            )
-		->where('merksnack', 'like', "%".$cari."%")
-		->paginate();
+            );
 
-    		// mengirim data snack ke view index
-		return view('SnackIndex',[
+    // Filter pencarian
+    if ($cari) {
+        $query->where('merksnack', 'like', "%".$cari."%");
+    }
 
-            'snack' => $snack,
-            'totalSnacks' => $totalSnacks,
-            'availableSnacks' => $availableSnacks
-        ]);
+    // Pengurutan
+    switch ($sort) {
+        case 'name_asc':
+            $query->orderBy('merksnack', 'asc');
+            break;
+        case 'name_desc':
+            $query->orderBy('merksnack', 'desc');
+            break;
+        case 'price_asc':
+            $query->orderByRaw('CAST(hargasnack AS DECIMAL(10,2)) asc');
+            break;
+        case 'price_desc':
+            $query->orderByRaw('CAST(hargasnack AS DECIMAL(10,2)) desc');
+            break;
+        default:
+            $query->orderBy('merksnack', 'asc'); // default sorting
+    }
 
-	}
+    $snack = $query->paginate(10)->withQueryString();
+    $totalSnacks = DB::table('snack')->count();
+    $availableSnacks = DB::table('snack')->where('tersedia', 1)->count();
 
+    return view('SnackIndex', [
+        'snack' => $snack,
+        'totalSnacks' => $totalSnacks,
+        'availableSnacks' => $availableSnacks
+    ]);
+}
 }
