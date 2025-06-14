@@ -7,6 +7,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\SnackController;
 use App\Http\Controllers\Tugas1Controller;
+use App\Http\Controllers\Tugas2Controller;
+use App\Http\Controllers\Tugas3Controller;
 
 // import java.io ;
 // Route adalah nama kelas
@@ -93,3 +95,15 @@ Route::get('/snack/hapus/{id}', [SnackController::class, 'hapus']);
 Route::get('/snack/cari', [SnackController::class, 'cari']);
 
 Route::get('/latihan1', [Tugas1Controller::class, 'index']);
+
+Route::get('/karyawanlat2', [Tugas2Controller::class, 'index']);
+Route::get('/karyawanlat2/tambah', [Tugas2Controller::class, 'tambah']);
+Route::post('/karyawanlat2/store', [Tugas2Controller::class, 'store']);
+Route::post('/karyawanlat2/update',[Tugas2Controller::class, 'update']);
+Route::get('/karyawanlat2/hapus/{id}', [Tugas2Controller::class, 'hapus']);
+
+Route::get('/karyawanlat3', [Tugas3Controller::class, 'index']);
+Route::get('/karyawanlat3/tambah', [Tugas3Controller::class, 'tambah']);
+Route::post('/karyawanlat3/store', [Tugas3Controller::class, 'store']);
+Route::post('/karyawanlat3/update',[Tugas3Controller::class, 'update']);
+Route::get('/karyawanlat3/hapus/{id}', [Tugas3Controller::class, 'hapus']);
