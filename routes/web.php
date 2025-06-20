@@ -9,6 +9,7 @@ use App\Http\Controllers\SnackController;
 use App\Http\Controllers\Tugas1Controller;
 use App\Http\Controllers\Tugas2Controller;
 use App\Http\Controllers\Tugas3Controller;
+use App\Http\Controllers\EASController;
 
 // import java.io ;
 // Route adalah nama kelas
@@ -107,3 +108,7 @@ Route::get('/karyawanlat3/tambah', [Tugas3Controller::class, 'tambah']);
 Route::post('/karyawanlat3/store', [Tugas3Controller::class, 'store']);
 Route::post('/karyawanlat3/update',[Tugas3Controller::class, 'update']);
 Route::get('/karyawanlat3/hapus/{id}', [Tugas3Controller::class, 'hapus']);
+
+Route::get('/eas', [EASController::class, 'index']);
+Route::get('/eas/edit/{kodepegawai}', [EASController::class, 'edit']);
+Route::post('/eas/view/{kodepegawai}', [EASontroller::class, 'view']);
